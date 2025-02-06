@@ -13,6 +13,7 @@ from pathlib import Path
 import pyproj as pyproj
 from defect_localisation_sbc.functions import *
 from streamlit.components.v1 import html
+import uuid
 def main():
     # Titre de l'application
     st.title("Traitement Sewerball Camera - Localisation des défauts")
@@ -143,13 +144,12 @@ def main():
             mime="text/csv"
         )
         m_result = afficher_carte(df_maps,df_defaut_final)
-        map_html = m_result._repr_html_()
-
-        # Afficher la carte avec Streamlit
+        map_name = f'map_'+str(uuid.uuid4())+'.html'
+        html = f"""<iframe src="./{map_name}" width="100%" height="600"></iframe>"""
+        path = Path(st.__file__).parent / 'static' / map_name
+        
         st.title("Localisation des désordes")
-        st.write("Carte générée :", map_html)
-        html(map_html, height=600)
-        # st_folium(m_result, width=700, height=500)
+        m_result.save(str(path))
 
 
 
