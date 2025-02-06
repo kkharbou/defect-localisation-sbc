@@ -12,6 +12,7 @@ from folium.features import CustomIcon
 from pathlib import Path
 import pyproj as pyproj
 from defect_localisation_sbc.functions import *
+from streamlit.components.v1 import html
 def main():
     # Titre de l'application
     st.title("Traitement Sewerball Camera - Localisation des défauts")
@@ -120,8 +121,20 @@ def main():
         df_defaut_final = df_defaut_final[df_defaut_final['Defaut'].notna() & df_defaut_final['Gravite'].notna()]
         st.subheader("Liste des défauts")
         st.dataframe(df_defaut_final)
+        result_csv_defaut = df_defaut_final.to_csv(index=True,sep=";")
+        st.download_button(
+            label="Télécharger la liste des défauts",
+            data=result_csv_defaut,
+            file_name="df_defaut.csv",
+            mime="text/csv"
+        )
         m_result = afficher_carte(df_maps,df_defaut_final)
-        st_folium(m_result, width=700, height=500)
+        map_html = m_result._repr_html_()
+
+        # Afficher la carte avec Streamlit
+        st.title("Localisation des désordes")
+        html(map_html, height=600)
+        # st_folium(m_result, width=700, height=500)
 
 
 main()

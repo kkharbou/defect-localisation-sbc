@@ -116,11 +116,8 @@ def afficher_carte(df_maps,df_defaut_final):
             fill=True,
             fill_color="black",  # Couleur du point
             fill_opacity=0.7
-        )
-    )
-    for _, row in df_maps.iterrows():
-        markers.add_child(
-            folium.Marker(
+        ),
+        folium.Marker(
                 location=[row["latitude"], row["longitude"]],
                 icon=folium.DivIcon(
                     icon_size=(150, 36),
@@ -128,7 +125,8 @@ def afficher_carte(df_maps,df_defaut_final):
                     html=f'<div style="font-size: 14px; color: blue; font-weight: bold;">{str(row["Regard amont"])}</div>'
                 )
             )
-        )
+    )
+
     for _, row in df_defaut_final.iterrows():
         marker_icon = get_marker_icon(row["Defaut"],row["Gravite"])
         
@@ -136,7 +134,8 @@ def afficher_carte(df_maps,df_defaut_final):
         markers.add_child(
             folium.Marker(
                 location=[row["latitude"], row["longitude"]],
-                icon=marker_icon
+                icon=marker_icon,
+                popup=row["Defaut"] 
             )
         )
     # Ajouter la FeatureGroup à la carte
@@ -150,10 +149,6 @@ def afficher_carte(df_maps,df_defaut_final):
         weight=3,
         opacity=0.7
     ).add_to(m)
-
-
-
-
     return m
 
 def get_color(gravity):
@@ -170,16 +165,16 @@ def get_color(gravity):
 def get_marker_icon(defaut,gravite):
     couleur = get_color(gravite)
     if defaut.lower() == "racine":
-        return folium.Icon(icon="leaf", prefix="fa", color=couleur)  # Icône d'arbre (feuille)
+        return folium.Icon(icon="seedling", prefix="fa", color=couleur)  # Icône d'arbre (feuille)
     elif defaut.lower() == "intrusion":
         return folium.Icon(icon="tint", prefix="fa", color=couleur)  # Icône d'alerte
     elif defaut.lower() == "fissure":
-        return folium.Icon(icon="bolt", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
+        return folium.Icon(icon="bolt-lightning", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
     elif defaut.lower() == "infiltration":
         return folium.Icon(icon="water", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
     elif defaut.lower() == "depot":
-        return folium.Icon(icon="map-marker-alt", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
+        return folium.Icon(icon="angles-down", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
     elif defaut.lower() == "concretion":
-        return folium.Icon(icon="lock", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
+        return folium.Icon(icon="location-pin-lock", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
     else:
         return None
