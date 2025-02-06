@@ -147,11 +147,8 @@ def main():
         )
         m_result = afficher_carte(df_maps,df_defaut_final)
         st.title("Localisation des désordes")
-        map_name = "map.html"
-        m_result.save(map_name)
-    
-        # Intégrer la carte dans Streamlit
-        st.markdown(f'<iframe src="{map_name}" width="100%" height="600"></iframe>', unsafe_allow_html=True)
+        m_result.save()
+
       
 
 
