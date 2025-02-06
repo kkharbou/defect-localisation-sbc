@@ -149,7 +149,7 @@ def main():
         map_html = f"""<iframe src="{str(path)}" width="100%" height="600"></iframe>"""
         html(map_html, height=600)
         
-        st.title("Localisation des désordes")*
+        st.title("Localisation des désordes")
         map_name = f'map_{uuid.uuid4()}.html'
 
         # Créer un chemin de sauvegarde
