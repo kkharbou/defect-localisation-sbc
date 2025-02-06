@@ -147,12 +147,10 @@ def main():
         )
         m_result = afficher_carte(df_maps,df_defaut_final)
         st.title("Localisation des désordes")
-
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".html") as tmp_file:
-            map_path = tmp_file.name
-            m_result.save(map_path)
-            html = f"""<iframe src="{map_path}" width="100%" height="600"></iframe>"""
-            st.markdown(html, unsafe_allow_html=True)
+        map_name = f'map_'+str(uuid.uuid4())+'.html' 
+        html = f"""<iframe src="./{map_name}" width="100%" height="600"></iframe>"""
+        path = Path(st.__file__).parent / 'static' / map_name
+        m_result.save(str(path))
 
 
 
