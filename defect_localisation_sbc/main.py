@@ -14,6 +14,7 @@ import pyproj as pyproj
 from defect_localisation_sbc.functions import *
 from streamlit.components.v1 import html
 import uuid
+import os
 def main():
     # Titre de l'application
     st.title("Traitement Sewerball Camera - Localisation des défauts")
@@ -145,12 +146,8 @@ def main():
         )
         m_result = afficher_carte(df_maps,df_defaut_final)
         st.title("Localisation des désordes")
-        map_name = f'map_{uuid.uuid4()}.html'
+        os.makedirs('static_maps', exist_ok=True)
 
-        # Créer un chemin de sauvegarde
-        path = Path(st.__file__).parent / 'static' / map_name
-        m_result.save(str(path))
-        
 
 
 
