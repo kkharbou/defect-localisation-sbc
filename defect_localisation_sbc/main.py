@@ -15,6 +15,7 @@ from defect_localisation_sbc.functions import *
 from streamlit.components.v1 import html
 import uuid
 import os
+import tempfile
 def main():
     # Titre de l'application
     st.title("Traitement Sewerball Camera - Localisation des défauts")
