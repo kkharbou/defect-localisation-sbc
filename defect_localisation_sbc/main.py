@@ -147,7 +147,7 @@ def main():
         )
         m_result = afficher_carte(df_maps,df_defaut_final)
         st.title("Localisation des désordes")
-        m_result.save()
+        st.map(m_result)
 
       
 
