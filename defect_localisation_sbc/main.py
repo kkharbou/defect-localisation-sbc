@@ -149,7 +149,7 @@ def main():
         st.title("Localisation des désordes")
         # html(map_html, height=600)
         # st_folium(m_result, width=700, height=500)
-        map_name = f'map_'+str(uuid.uuid4())+'.html' 
+        map_name = f'map.html' 
         html = f"""<iframe src="./{map_name}" width="100%" height="600"></iframe>"""
         path = Path(st.__file__).parent / 'static' / map_name
         m_result.save(str(path))
