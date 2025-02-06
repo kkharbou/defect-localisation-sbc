@@ -1,15 +1,7 @@
-import pandas as pd
-import streamlit as st
-import logging
 import math
 from math import cos, sin, atan2, radians, degrees, asin
 from numpy import sin, cos, arcsin, radians, sqrt
-import numpy as np
-import pydeck as pdk
 import folium
-from streamlit_folium import st_folium
-from folium.features import CustomIcon
-from pathlib import Path
 import warnings
 import pyproj
 
@@ -149,6 +141,7 @@ def afficher_carte(df_maps,df_defaut_final):
         weight=3,
         opacity=0.7
     ).add_to(m)
+    
     return m
 
 def get_color(gravity):
@@ -159,7 +152,7 @@ def get_color(gravity):
     elif gravity == 1:
         return "green"
     else:
-        return "black"
+        return "blue"
 
 
 def get_marker_icon(defaut,gravite):

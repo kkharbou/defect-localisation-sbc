@@ -1,18 +1,10 @@
 import pandas as pd
 import streamlit as st
-import logging
-import math
-from math import cos, sin, atan2, radians, degrees, asin
-from numpy import sin, cos, arcsin, radians, sqrt
-import numpy as np
-import pydeck as pdk
-import folium as folim
-from streamlit_folium import st_folium
-from folium.features import CustomIcon
 from pathlib import Path
 import pyproj as pyproj
 from defect_localisation_sbc.functions import *
 from streamlit.components.v1 import html
+
 def main():
     # Titre de l'application
     st.title("Traitement Sewerball Camera - Localisation des défauts")
@@ -20,7 +12,7 @@ def main():
     st.write("""
     ### Prérequis:
     1. **Format CSV Standard** : Les valeurs doivent être séparées par point virgule (`;`).
-    2. **En-têtes de Colonnes** : La première ligne doit contenir les noms des colonnes, les colonnes obligatoires:["Regard amont","temps_video","cord1","cord2","Defaut","Gravite"].
+    2. **En-têtes de Colonnes** : La première ligne doit contenir les noms des colonnes, les colonnes obligatoires:["Regard amont","temps_video","cord1","Longitude","Defaut","Gravite"].
     3. **La première ligne** : Assurez-vous que la première ligne contienne l'heure de départ de la sewerball camera.
     4. **Encodage** : Utilisez un encodage UTF-8 pour éviter les problèmes avec des caractères spéciaux.
             """)
@@ -65,8 +57,6 @@ def main():
             df2 = df2[["temps_video", "Defaut", "Gravite"]]
             st.subheader("Données initiales")
             st.write(df1)
-            st.subheader("Données des défauts")
-            st.write(df2)
 
             try:
                 df_selection=df1[["temps_video","cord1","cord2"]]
@@ -144,11 +134,7 @@ def main():
         )
         m_result = afficher_carte(df_maps,df_defaut_final)
         map_html = m_result._repr_html_()
-
-        # Afficher la carte avec Streamlit
-        st.title("Localisation des désordes")
-        html(map_html, height=600)
-        # st_folium(m_result, width=700, height=500)
+        html(map_html, height=500)
 
 
 main()
