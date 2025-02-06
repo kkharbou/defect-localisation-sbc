@@ -147,7 +147,7 @@ def main():
         map_name = f'map_'+str(uuid.uuid4())+'.html'
         path = Path(st.__file__).parent / 'static' / map_name
         html = f"""<iframe src="{str(path)}" width="100%" height="600"></iframe>"""
-        st.markdown(html, unsafe_allow_html=True)
+        html(map_html, height=600)
         
         st.title("Localisation des désordes")
         
