@@ -143,12 +143,17 @@ def main():
             mime="text/csv"
         )
         m_result = afficher_carte(df_maps,df_defaut_final)
-        map_html = m_result._repr_html_()
+        # map_html = m_result._repr_html_()
 
         # Afficher la carte avec Streamlit
         st.title("Localisation des désordes")
         # html(map_html, height=600)
-        st_folium(m_result, width=700, height=500)
+        # st_folium(m_result, width=700, height=500)
+        map_name = f'map_'+str(uuid.uuid4())+'.html' 
+        html = f"""<iframe src="./{map_name}" width="100%" height="600"></iframe>"""
+        path = Path(st.__file__).parent / 'static' / map_name
+        m_result.save(str(path))
+
 
 
 main()
