@@ -171,12 +171,10 @@ def get_marker_icon(defaut,gravite):
     elif defaut.lower() == "fissure":
         return folium.Icon(icon="bolt-lightning", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
     elif defaut.lower() == "infiltration":
-        return folium.Icon(icon="water", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
+        return folium.Icon(icon="water",icon_color="blue", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
     elif defaut.lower() == "depot":
         return folium.Icon(icon="angles-down", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
     elif defaut.lower() == "concretion":
         return folium.Icon(icon="location-pin-lock", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
-    elif defaut.lower() == "autres":
-        return folium.Icon(icon="location-pin-lock", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
     else:
-        return None
+        return folium.Icon(icon="circle-info", prefix="fa", color=couleur)  # Icône de fissure (ou une autre icône)
