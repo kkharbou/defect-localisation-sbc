@@ -6,14 +6,11 @@ from math import cos, sin, atan2, radians, degrees, asin
 from numpy import sin, cos, arcsin, radians, sqrt
 import numpy as np
 import pydeck as pdk
-import folium
+import folium as folim
 from streamlit_folium import st_folium
 from folium.features import CustomIcon
 from pathlib import Path
-import warnings
-import pyproj
-from defect_localisation_sbc.functions import *
-
+import pyproj as pyproj
 
 def main():
     # Titre de l'application
