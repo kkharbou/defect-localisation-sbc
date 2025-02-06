@@ -11,7 +11,7 @@ from streamlit_folium import st_folium
 from folium.features import CustomIcon
 from pathlib import Path
 import pyproj as pyproj
-
+from defect_localisation_sbc.functions import *
 def main():
     # Titre de l'application
     st.title("Traitement Sewerball Camera - Localisation des défauts")
