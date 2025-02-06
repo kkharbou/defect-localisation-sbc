@@ -107,8 +107,7 @@ def afficher_carte(df_maps,df_defaut_final):
             color="black",  # Couleur du contour
             fill=True,
             fill_color="black",  # Couleur du point
-            fill_opacity=0.7
-        )
+            fill_opacity=0.7)
         )
         markers.add_child(
         folium.Marker(
