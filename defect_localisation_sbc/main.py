@@ -150,9 +150,6 @@ def main():
         # Créer un chemin de sauvegarde
         path = Path(st.__file__).parent / 'static' / map_name
 
-        # Sauvegarder la carte
-        m_result.save(str(path))
-
         # Afficher le lien ou l'iframe pour accéder à la carte
         html = f"""<iframe src="./{map_name}" width="100%" height="600"></iframe>"""
         st.markdown(html, unsafe_allow_html=True)
