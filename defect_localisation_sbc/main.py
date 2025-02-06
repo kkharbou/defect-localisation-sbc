@@ -144,11 +144,6 @@ def main():
             mime="text/csv"
         )
         m_result = afficher_carte(df_maps,df_defaut_final)
-        map_name = f'map_'+str(uuid.uuid4())+'.html'
-        path = Path(st.__file__).parent / 'static' / map_name
-        map_html = f"""<iframe src="{str(path)}" width="100%" height="600"></iframe>"""
-        html(map_html, height=600)
-        
         st.title("Localisation des désordes")
         map_name = f'map_{uuid.uuid4()}.html'
 
