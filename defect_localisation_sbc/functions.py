@@ -108,7 +108,8 @@ def afficher_carte(df_maps,df_defaut_final):
             fill=True,
             fill_color="black",  # Couleur du point
             fill_opacity=0.7
-        ),
+        )
+        markers.add_child(
         folium.Marker(
                 location=[row["latitude"], row["longitude"]],
                 icon=folium.DivIcon(
