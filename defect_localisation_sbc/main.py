@@ -142,6 +142,7 @@ def main():
             file_name="df_defaut.csv",
             mime="text/csv"
         )
+        @st.cache_data
         m_result = afficher_carte(df_maps,df_defaut_final)
         map_html = m_result._repr_html_()
 
