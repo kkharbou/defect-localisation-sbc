@@ -147,7 +147,7 @@ def main():
 
         # Afficher la carte avec Streamlit
         st.title("Localisation des désordes")
-        # html(map_html, height=600)
+        html(map_html, height=600)
         # st_folium(m_result, width=700, height=500)
 
 
