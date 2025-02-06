@@ -12,7 +12,7 @@ def main():
     st.write("""
     ### Prérequis:
     1. **Format CSV Standard** : Les valeurs doivent être séparées par point virgule (`;`).
-    2. **En-têtes de Colonnes** : La première ligne doit contenir les noms des colonnes, les colonnes obligatoires:["Regard amont","temps_video","cord1","Longitude","Defaut","Gravite"].
+    2. **En-têtes de Colonnes** : La première ligne doit contenir les noms des colonnes, les colonnes obligatoires:["Regard amont","temps_video","cord1","cord2","Defaut","Gravite"].
     3. **La première ligne** : Assurez-vous que la première ligne contienne l'heure de départ de la sewerball camera.
     4. **Encodage** : Utilisez un encodage UTF-8 pour éviter les problèmes avec des caractères spéciaux.
             """)
