@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "defect_localisation_sbc"
+version = "0.1.0"
+description = "Python Package to locate defects with sewerball camera"
+authors = ["Khadija Kharbouch <khadija.kharbouch@suez.com>"]
+readme = "README.md"
+packages = [{ include = "defect_localisation_sbc" }]
+
+[tool.poetry.scripts]
+defect_localisation_sbc = 'defect_localisation_sbc.cli:cli'
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+pandas = "^2.2.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+flake8 = "^6.0.0"
+pytest = "^7.2.0"
+coverage = "^6.5.0"
+
+
+
+[tool.poetry_bumpversion.file."defect_localisation_sbc/__init__.py"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

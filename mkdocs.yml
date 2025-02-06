@@ -1,0 +1,11 @@
+site_name: defect_localisation_sbc
+site_description: Python Package to locate defects with sewerball camera
+repo_url: https://gitlab.com/Khadija Kharbouch/defect_localisation_sbc.git
+site_dir: html
+
+theme:
+  name: "material"
+
+markdown_extensions:
+  - admonition
+  - codehilite
